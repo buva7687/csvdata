@@ -4,9 +4,8 @@ import math
 import pandas as pd
 
 #print(time.time())
-with open('C:\\Users\\BMath3\\PycharmProjects\\Learn\\result.txt', 'w') as a:
-    #for path, subdirs, files in os.walk('C:\\Users\\BMath3\\PycharmProjects\\Learn\\data\\'):
-    for path , subdirs, files in os.walk('C:\\Users\\BMath3\\data\\ICC-Incoterms\\data\\'):
+with open('Directorypath\\result.txt', 'w') as a:
+    for path , subdirs, files in os.walk('Data directorypath\\data\\'):
         for filenames in files:
             if re.match("^.*.csv$", filenames):
                 f = os.path.join(path,filenames)
@@ -17,7 +16,7 @@ a.close()
 
 paths = []
 
-with open("C:\\Users\\BMath3\\PycharmProjects\\Learn\\result.txt")as file:
+with open("Directorypath\\result.txt")as file:
     filecount = 0
     for line in file:
         line = line.rstrip()
@@ -25,7 +24,7 @@ with open("C:\\Users\\BMath3\\PycharmProjects\\Learn\\result.txt")as file:
         filecount = filecount + 1
     print("File count is ", filecount)
 
-    with open('C:\\Users\\BMath3\\PycharmProjects\\Learn\\columns.txt', 'w') as cf:
+    with open('Directorypath\\columns.txt', 'w') as cf:
         sumcolum = 0
         for singlefile in paths:
             #print(singlefile)
@@ -40,7 +39,7 @@ with open("C:\\Users\\BMath3\\PycharmProjects\\Learn\\result.txt")as file:
     print("Average no. of columns in all files:", math.ceil(sumcolum/filecount))
     cf.close()
 
-    with open('C:\\Users\\BMath3\\PycharmProjects\\Learn\\rows.txt', 'w') as rf:
+    with open('Directorypath\\rows.txt', 'w') as rf:
         for singlefile in paths:
             exampleFile = open(singlefile, 'r', encoding="utf8", errors='ignore')
 
@@ -56,7 +55,7 @@ with open("C:\\Users\\BMath3\\PycharmProjects\\Learn\\result.txt")as file:
             rf.write('\n')
     rf.close()
 
-    with open('C:\\Users\\BMath3\\PycharmProjects\\Learn\\Total.txt', 'w') as tf:
+    with open('Directorypath\\Total.txt', 'w') as tf:
         totalrowcount = 0
         for singlefile in paths:
             exampleFile = open(singlefile, 'r', encoding="utf8", errors='ignore')
