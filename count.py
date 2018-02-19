@@ -24,7 +24,7 @@ with open("C:\\Users\\Buvaneswaran\\Downloads\\data\\result.txt")as file:
         line = line.rstrip()
         paths.append(line)
         filecount = filecount + 1
-    print("File count is ", filecount)
+    print("Total files count is ", filecount)
 
     # The below part is to identify the column count. The result will be stored in columns.txt
     with open('C:\\Users\\Buvaneswaran\\Downloads\\data\\columns.txt', 'w') as cf:
@@ -39,9 +39,8 @@ with open("C:\\Users\\Buvaneswaran\\Downloads\\data\\result.txt")as file:
             cf.write(str(ncol))
             cf.write('\n')
             exampleFile.seek(0)
-    print("sum column",sumcolum)
-    print("filecount", filecount)
-    print("Average no. of columns in all files:", math.ceil(sumcolum/filecount))
+    print("Total column counts in all files:",sumcolum)
+    print("Average no. of columns in all files: (rounded to next integer value)", math.ceil(sumcolum/filecount))
     cf.close()
 
     # The below part is to identify the word count. The result will be stored in words.txt
@@ -72,6 +71,6 @@ with open("C:\\Users\\Buvaneswaran\\Downloads\\data\\result.txt")as file:
             #print(row_count)
         #print("file count is",filecount)
         tf.write(str(totalrowcount - filecount))
-        print("Total row count is ", (totalrowcount - filecount)) # file count subtraction is to remove the headers
+        print("Total row count in all files are ", (totalrowcount - filecount)) # file count subtraction is to remove the headers
 
     tf.close()
